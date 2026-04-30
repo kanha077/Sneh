@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "448802207267",
+    "project_id": "snehapp-21688",
+    "storage_bucket": "snehapp-21688.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448802207267:android:5184b9b796a3a814d3e396",
+        "android_client_info": {
+          "package_name": "com.sneh.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7PihSE-L2eKZWRxrfXPR5fpMm8mVKixc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

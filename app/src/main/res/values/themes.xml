@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.SnehApp" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/dustyPink</item>
+        <item name="colorSecondary">@color/warmPurple</item>
+
+        <item name="android:windowBackground">@color/creamBg</item>
+
+        <!-- Soft UI -->
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+        <item name="android:statusBarColor">@color/creamBg</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+</resources>

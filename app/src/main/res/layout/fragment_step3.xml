@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="24dp"
+        android:background="@color/background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health&amp;Lifestyle 💊"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <!-- Symptoms -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Symptoms"
+            android:layout_marginTop="16dp"/>
+
+        <CheckBox
+            android:id="@+id/cramps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cramps"/>
+
+        <CheckBox
+            android:id="@+id/moodSwings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mood Swings"/>
+
+        <CheckBox
+            android:id="@+id/fatigue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fatigue"/>
+
+        <!-- Lifestyle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sleep Quality"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/sleepQuality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stress Level"
+            android:layout_marginTop="8dp"/>
+
+        <Spinner
+            android:id="@+id/stressLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercise Frequency"
+            android:layout_marginTop="8dp"/>
+
+        <Spinner
+            android:id="@+id/exerciseFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Goal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Primary Goal"
+            android:layout_marginTop="16dp"/>
+
+        <RadioGroup
+            android:id="@+id/goalGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track Cycle"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reduce Symptoms"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Improve Health"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/finishBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finish"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
