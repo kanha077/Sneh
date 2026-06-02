@@ -24,13 +24,32 @@ class DashboardFragment : Fragment() {
     ): View {
 
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val userName = view.findViewById<TextView>(R.id.userName)
-        val cycleInfo = view.findViewById<TextView>(R.id.cycleInfo)
-        val lastPeriod = view.findViewById<TextView>(R.id.lastPeriod)
-        val phaseText = view.findViewById<TextView>(R.id.phaseText)
-        val recommendationText = view.findViewById<TextView>(R.id.recommendationText)
-        val logoutBtn = view.findViewById<Button>(R.id.logoutBtn)
-        val calendarGrid = view.findViewById<GridLayout>(R.id.calendarGrid)
+        val logo = view.findViewById<ImageView>(R.id.logo)
+        val logoutBtn = view.findViewById<ImageButton>(R.id.logoutBtn)
+        
+        val moduleCycle = view.findViewById<View>(R.id.moduleCycle)
+        val moduleMind = view.findViewById<View>(R.id.moduleMind)
+        val modulePhysical = view.findViewById<View>(R.id.modulePhysical)
+        val moduleNutrition = view.findViewById<View>(R.id.moduleNutrition)
+        val moduleFertility = view.findViewById<View>(R.id.moduleFertility)
+        val moduleExpert = view.findViewById<View>(R.id.moduleExpert)
+
+        // 📅 Navigation Logic
+        moduleCycle.setOnClickListener { navigateTo(CalendarFragment()) }
+        
+        moduleMind.setOnClickListener { navigateTo(PlaceholderFragment.newInstance("Mind Wellness")) }
+        modulePhysical.setOnClickListener { navigateTo(PlaceholderFragment.newInstance("Physical Fitness")) }
+        moduleNutrition.setOnClickListener { navigateTo(PlaceholderFragment.newInstance("Nutrition")) }
+        moduleFertility.setOnClickListener { navigateTo(PlaceholderFragment.newInstance("Fertility Plan")) }
+        moduleExpert.setOnClickListener { navigateTo(PlaceholderFragment.newInstance("Expert & Community")) }
+
+        // 🚪 Logout
+        logoutBtn.setOnClickListener {
+            auth.signOut()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
 
         // 🔐 Redirect if not logged in
         if (auth.currentUser == null) {
@@ -38,54 +57,14 @@ class DashboardFragment : Fragment() {
             requireActivity().finish()
         }
 
-        val userId = auth.currentUser?.uid
-
-        if (userId != null) {
-            db.collection("users")
-                .document(userId)
-                .get()
-                .addOnSuccessListener { doc ->
-
-                    if (doc.exists()) {
-
-                        val profile = doc.get("profile") as? Map<*, *>
-                        val cycle = doc.get("cycle") as? Map<*, *>
-
-                        val name = profile?.get("name") as? String ?: "User"
-                        val cycleLength = (cycle?.get("cycleLength") as? Long)?.toInt() ?: 28
-                        val lastDate = cycle?.get("lastPeriodDate") as? String ?: ""
-
-                        userName.text = "Hello, $name 🌸"
-                        cycleInfo.text = "Cycle Length: $cycleLength days"
-                        lastPeriod.text = "Last Period: $lastDate"
-
-                        if (lastDate.isNotEmpty()) {
-                            val (day, phase) = getCycleDayAndPhase(lastDate, cycleLength)
-                            val rec = getRecommendation(phase)
-
-                            phaseText.text = "Day $day • $phase"
-                            recommendationText.text = rec
-
-                            setupCalendar(calendarGrid, lastDate, cycleLength)
-                        } else {
-                            phaseText.text = "Phase: Unknown"
-                            recommendationText.text = "Complete onboarding."
-                        }
-                    }
-                }
-        }
-
-        // 🚪 Logout
-        logoutBtn.setOnClickListener {
-            auth.signOut()
-
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            startActivity(intent)
-        }
-
         return view
+    }
+
+    private fun navigateTo(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     // 🌸 PHASE CALCULATION

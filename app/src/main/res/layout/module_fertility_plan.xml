@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/EcosystemModuleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fertility Plan"
+            android:textColor="@color/roseGold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌱" android:textSize="20sp" android:padding="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🤰" android:textSize="20sp" android:padding="4dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Ovulation data"
+                android:textSize="8sp"
+                android:padding="1dp" />
+
+            <!-- Refined Mock BBT Chart -->
+            <View android:layout_width="match_parent" android:layout_height="12dp" android:background="#F9F9F9" android:layout_margin="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• BBT trend"
+                android:textSize="8sp"
+                android:padding="1dp" />
+            
+            <!-- Refined Mock LH Surge -->
+            <View android:layout_width="match_parent" android:layout_height="12dp" android:background="#F9F9F9" android:layout_margin="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="✅ Planning mode"
+                android:layout_marginTop="8dp"
+                android:textSize="9sp"
+                android:fontFamily="@font/poppins_bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

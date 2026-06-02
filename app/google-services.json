@@ -12,7 +12,20 @@
           "package_name": "com.sneh.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "448802207267-r9a5ba84lt65jju2dvsr6jbg4alaebnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sneh.app",
+            "certificate_hash": "28c6a4315876fc140029417b9e10dc7f2d4df91d"
+          }
+        },
+        {
+          "client_id": "448802207267-brf9gr93ijf4fuqa4hiuas217bqehmou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA7PihSE-L2eKZWRxrfXPR5fpMm8mVKixc"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448802207267-brf9gr93ijf4fuqa4hiuas217bqehmou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

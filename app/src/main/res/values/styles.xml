@@ -3,14 +3,50 @@
 
     <style name="TextHeading">
         <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/textPrimary</item>
     </style>
 
     <style name="TextBody">
         <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/textSecondary</item>
     </style>
 
     <style name="PrimaryButton">
         <item name="android:backgroundTint">@color/dustyPink</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <!-- 📊 Ecosystem Specific Styles -->
+    <style name="EcosystemModuleTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/dustyPink</item>
+    </style>
+
+    <style name="EcosystemModuleItem">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <style name="EcosystemLabel">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/warmPurple</item>
+        <item name="android:background">@color/labelBackground</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="EcosystemTagline">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/dustyPink</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/card</item>
+        <item name="android:padding">16dp</item>
     </style>
 
 </resources>

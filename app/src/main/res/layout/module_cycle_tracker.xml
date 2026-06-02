@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/EcosystemModuleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cycle Tracker"
+            android:textColor="@color/cherryRed" />
+
+        <!-- Refined Flow Diagram -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+            <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/cherryRed" android:layout_marginEnd="2dp" />
+            <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="2" android:background="@color/calendarBrown" android:layout_marginEnd="2dp" />
+            <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/oliveGreen" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/EcosystemModuleItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menses • Follicular • Gestation"
+            android:textSize="7sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Refined Line Chart -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:background="#FDFDFD"
+            android:padding="4dp">
+            
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_gravity="center_vertical" />
+            
+            <!-- Hand-drawn style lines (mocked with thin views) -->
+            <View android:layout_width="match_parent" android:layout_height="2dp" android:background="@color/cherryRed" android:layout_marginTop="10dp" android:rotation="3" android:alpha="0.6"/>
+            <View android:layout_width="match_parent" android:layout_height="2dp" android:background="@color/oliveGreen" android:layout_marginTop="20dp" android:rotation="-4" android:alpha="0.6"/>
+        </FrameLayout>
+
+        <!-- Refined Symptom Chart -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+            <View android:layout_width="0dp" android:layout_height="20dp" android:layout_weight="1" android:background="@color/cherryRed" android:layout_marginEnd="4dp" android:alpha="0.8"/>
+            <View android:layout_width="0dp" android:layout_height="35dp" android:layout_weight="1" android:background="@color/calendarBrown" android:layout_marginEnd="4dp" android:alpha="0.8"/>
+            <View android:layout_width="0dp" android:layout_height="15dp" android:layout_weight="1" android:background="@color/peachHighlight" android:layout_marginEnd="4dp" />
+            <View android:layout_width="0dp" android:layout_height="25dp" android:layout_weight="1" android:background="@color/oliveGreen" android:alpha="0.8"/>
+        </LinearLayout>
+        
+        <TextView
+            style="@style/EcosystemModuleItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Symptoms"
+            android:layout_marginTop="4dp"
+            android:textSize="9sp"
+            android:fontFamily="@font/poppins_bold" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

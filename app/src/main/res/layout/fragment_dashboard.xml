@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,87 +6,190 @@
     android:background="@color/creamBg"
     android:fillViewport="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingBottom="60dp">
 
-        <!-- 🌸 HEADER -->
+        <!-- 🚪 TOP BAR -->
+        <ImageButton
+            android:id="@+id/logoutBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_launcher_foreground"
+            app:tint="@color/calendarBrown"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="Logout" />
+
         <TextView
-            android:id="@+id/userName"
+            android:id="@+id/welcomeTitle"
             style="@style/TextHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello, User 🌸"/>
+            android:text="Your Ecosystem"
+            android:textColor="@color/calendarBrown"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- 📊 INFO CARD -->
+        <!-- 🌸 CENTRAL HUB -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="6dp">
+            android:id="@+id/centralPanel"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            app:cardCornerRadius="65dp"
+            app:cardElevation="16dp"
+            app:cardBackgroundColor="@color/card"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.45">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/cycleInfo"
-                    style="@style/TextBody"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cycle Length: 28 days"/>
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/ic_logo"
+                    android:contentDescription="Sneh Logo" />
 
                 <TextView
-                    android:id="@+id/lastPeriod"
-                    style="@style/TextBody"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Last Period: --"
-                    android:layout_marginTop="4dp"/>
-
-                <TextView
-                    android:id="@+id/phaseText"
-                    style="@style/TextHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Day 1 • Phase"
-                    android:layout_marginTop="8dp"/>
-
-                <TextView
-                    android:id="@+id/recommendationText"
-                    style="@style/TextBody"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Recommendation here"
-                    android:layout_marginTop="4dp"/>
+                    android:text="Sneh"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/dustyPink"
+                    android:layout_marginTop="2dp" />
 
             </LinearLayout>
-
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- 📅 CALENDAR -->
-        <GridLayout
-            android:id="@+id/calendarGrid"
+        <!-- 📱 LEFT MODULES -->
+
+        <!-- Top Left: Cycle Tracker -->
+        <include
+            android:id="@+id/moduleCycle"
+            layout="@layout/module_cycle_tracker"
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            style="@style/EcosystemLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cycle Tracker"
+            android:rotation="-8"
+            app:layout_constraintBottom_toTopOf="@id/moduleCycle"
+            app:layout_constraintStart_toStartOf="@id/moduleCycle"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Mid Left: Mind Wellness -->
+        <include
+            android:id="@+id/moduleMind"
+            layout="@layout/module_mind_wellness"
+            android:layout_width="140dp"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/moduleCycle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="12dp" />
+
+        <!-- Bottom Left: Physical Fitness -->
+        <include
+            android:id="@+id/modulePhysical"
+            layout="@layout/module_physical_fitness"
+            android:layout_width="150dp"
+            android:layout_height="210dp"
+            app:layout_constraintTop_toBottomOf="@id/moduleMind"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp" />
+
+
+        <!-- 📱 RIGHT MODULES -->
+
+        <!-- Top Right: Nutrition -->
+        <include
+            android:id="@+id/moduleNutrition"
+            layout="@layout/module_nutrition"
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp" />
+
+        <TextView
+            style="@style/EcosystemLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrition"
+            android:rotation="8"
+            app:layout_constraintBottom_toTopOf="@id/moduleNutrition"
+            app:layout_constraintEnd_toEndOf="@id/moduleNutrition"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Mid Right: Fertility Plan -->
+        <include
+            android:id="@+id/moduleFertility"
+            layout="@layout/module_fertility_plan"
+            android:layout_width="140dp"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/moduleNutrition"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="12dp" />
+
+        <!-- Bottom Right: Expert & Community -->
+        <include
+            android:id="@+id/moduleExpert"
+            layout="@layout/module_expert_community"
+            android:layout_width="150dp"
+            android:layout_height="210dp"
+            app:layout_constraintTop_toBottomOf="@id/moduleFertility"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="24dp" />
+
+
+        <!-- ✨ BOTTOM TAGLINE -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/taglineCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="7"
-            android:layout_marginTop="16dp"
-            android:alignmentMode="alignMargins"/>
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="60dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card"
+            app:layout_constraintTop_toBottomOf="@id/modulePhysical"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- 🚪 LOGOUT BUTTON -->
-        <Button
-            android:id="@+id/logoutBtn"
-            style="@style/PrimaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                style="@style/EcosystemTagline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nurturing Every Flow,\nConnecting Your Wellness."
+                android:background="@android:color/transparent"
+                android:padding="20dp" />
+        </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

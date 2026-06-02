@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/EcosystemModuleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Community"
+            android:textColor="@color/dustyPink" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="💬"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Chat with experts"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Community forums"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Live sessions"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/EcosystemModuleItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10k+ users joined"
+            android:gravity="center"
+            android:textSize="8sp"
+            android:textColor="@color/dustyPink"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

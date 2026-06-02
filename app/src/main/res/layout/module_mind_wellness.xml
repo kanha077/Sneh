@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/EcosystemModuleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mind Wellness"
+            android:textColor="@color/warmPurple" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="🧘‍♀️"
+            android:textSize="32sp" />
+
+        <TextView
+            style="@style/EcosystemModuleItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your mood today"
+            android:textSize="9sp"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="4dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="😊" android:textSize="14sp" android:padding="2dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="😌" android:textSize="14sp" android:padding="2dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="😔" android:textSize="14sp" android:padding="2dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="😠" android:textSize="14sp" android:padding="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Guided meditation"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Phase sessions"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -6,4 +6,5 @@
     <string name="password_hint">Password</string>
     <string name="login_button">Login</string>
     <string name="create_account">Create account</string>
+    <string name="default_web_client_id">448802207267-brf9gr93ijf4fuqa4hiuas217bqehmou.apps.googleusercontent.com</string>
 </resources>

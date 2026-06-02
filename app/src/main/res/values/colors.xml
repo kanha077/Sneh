@@ -3,21 +3,27 @@
 
     <!-- 🌸 Primary Palette -->
     <color name="lightLavender">#E6D6F2</color>
-
     <color name="softYellow">#FFF2B2</color>
-
     <color name="dustyPink">#E8A0A8</color>
     <color name="warmPurple">#B48FB5</color>
     <color name="creamBg">#FFF6F7</color>
-
 
     <!-- 🧠 UI Colors -->
     <color name="primary">#F4A7B9</color>
     <color name="secondary">#B39DDB</color>
     <color name="background">#FFF9F6</color>
-
     <color name="card">#FFFFFF</color>
     <color name="textPrimary">#2A2A2A</color>
     <color name="textSecondary">#7A7A7A</color>
 
-</resources>
+    <!-- 🌿 Sneh Wellness Calendar Palette -->
+    <color name="paperBg">#FAF9F6</color>
+    <color name="calendarBrown">#4A3728</color>
+    <color name="cherryRed">#D21F3C</color>
+    <color name="oliveGreen">#708238</color>
+    <color name="peachHighlight">#FFDAB9</color>
+    <color name="inactivePink">#F8D7DA</color>
+    <color name="roseGold">#B76E79</color>
+    <color name="labelBackground">#E6D6F2</color>
+    <color name="waterBlue">#AED9E0</color>
+    </resources>

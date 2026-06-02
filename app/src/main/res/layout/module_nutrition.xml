@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/EcosystemModuleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrition"
+            android:textColor="@color/oliveGreen" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🥗" android:textSize="24sp" android:padding="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🧠" android:textSize="24sp" android:padding="4dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Tailored suggestions"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Calm brain tips"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+            <TextView
+                style="@style/EcosystemModuleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Hydration tracker"
+                android:textSize="9sp"
+                android:padding="2dp" />
+
+        </LinearLayout>
+
+        <!-- Refined Water tracker mini viz -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <View android:layout_width="12dp" android:layout_height="match_parent" android:background="@color/waterBlue" android:layout_margin="1dp" />
+            <View android:layout_width="12dp" android:layout_height="match_parent" android:background="@color/waterBlue" android:layout_margin="1dp" />
+            <View android:layout_width="12dp" android:layout_height="match_parent" android:background="@color/waterBlue" android:layout_margin="1dp" />
+            <View android:layout_width="12dp" android:layout_height="match_parent" android:background="@color/waterBlue" android:layout_margin="1dp" />
+            <View android:layout_width="12dp" android:layout_height="match_parent" android:background="#F0F0F0" android:layout_margin="1dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

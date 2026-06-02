@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/calendarBrown"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_regular" />
+
+    <LinearLayout
+        android:id="@+id/markerContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp">
+        <View
+            android:id="@+id/periodDot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/dot_period"
+            android:visibility="gone"
+            android:layout_margin="1dp"/>
+        <View
+            android:id="@+id/fertilityDot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/dot_fertility"
+            android:visibility="gone"
+            android:layout_margin="1dp"/>
+    </LinearLayout>
+
+</LinearLayout>
