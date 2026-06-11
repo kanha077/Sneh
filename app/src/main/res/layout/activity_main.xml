@@ -1,6 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent"
+    android:background="@color/snehCream">
+
+    <!-- Fragment Container -->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBarCard" />
+
+    <!-- Custom Bottom Navigation Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomBarCard"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/snehWhite"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/snehBlush">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <!-- Tab 1: Home -->
+            <LinearLayout
+                android:id="@+id/tabHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:id="@+id/tabHomeIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏠"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tabHomeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehRose"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Tab 2: Cycle -->
+            <LinearLayout
+                android:id="@+id/tabCycle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:id="@+id/tabCycleIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📅"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tabCycleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cycle"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehSubtle"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Tab 3: Mind -->
+            <LinearLayout
+                android:id="@+id/tabMind"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:id="@+id/tabMindIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🧘‍♀️"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tabMindText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mind"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehSubtle"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Tab 4: Nutrition -->
+            <LinearLayout
+                android:id="@+id/tabNutrition"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:id="@+id/tabNutritionIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍎"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tabNutritionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nutrition"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehSubtle"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Tab 5: Me -->
+            <LinearLayout
+                android:id="@+id/tabMe"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:id="@+id/tabMeIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📋"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tabMeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Report"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehSubtle"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

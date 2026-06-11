@@ -1,55 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="#FDF6F3"
+    android:padding="24dp">
 
+    <!-- Screen Title Banner -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ONBOARDING — STEP 1"
+        android:textColor="#C8856A"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.12"
+        android:gravity="center"
+        android:paddingBottom="20dp" />
+
+    <!-- Page Title -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="24dp"
-        android:background="@color/background">
+        android:layout_marginBottom="6dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tell us about you 🌸"
+            android:text="Basic Info"
+            android:textColor="#3D2318"
             android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Your Name"
-            android:background="@drawable/bg_input"
-            android:padding="14dp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Your Age"
-            android:inputType="number"
-            android:background="@drawable/bg_input"
-            android:padding="14dp"
-            android:layout_marginTop="12dp"/>
-
-        <Spinner
-            android:id="@+id/activityLevel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"/>
-
-        <Button
-            android:id="@+id/nextBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:layout_marginTop="24dp"/>
+            android:text="  बुनियादी जानकारी"
+            android:textColor="#C9A090"
+            android:textSize="13sp" />
     </LinearLayout>
-</ScrollView>
+
+    <!-- Progress Bar Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp"
+        android:weightSum="3">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/progress_segment_active" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/progress_segment_inactive" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/progress_segment_inactive" />
+    </LinearLayout>
+
+    <!-- Step Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step 1 of 3 — चरण 1 of 3"
+        android:textColor="#C9A090"
+        android:textSize="12sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Input: Age — ID must match Kotlin: binding.age -->
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="आयु | Age"
+        android:textColorHint="#C9A090"
+        android:textColor="#3D2318"
+        android:textSize="14sp"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Input: Menarche Age — ID must match Kotlin: binding.firstPeriodAge -->
+    <EditText
+        android:id="@+id/firstPeriodAge"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="पहली माहवारी | Menarche age"
+        android:textColorHint="#C9A090"
+        android:textColor="#3D2318"
+        android:textSize="14sp"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Input: Cycle Length — ID must match Kotlin: binding.cycleLength -->
+    <EditText
+        android:id="@+id/cycleLength"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="सामान्य चक्र | Cycle length"
+        android:textColorHint="#C9A090"
+        android:textColor="#3D2318"
+        android:textSize="14sp"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Known Conditions Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="जात स्थितियां | Known conditions"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Condition Chips — IDs match Kotlin: chipPCOS, chipEndo, chipThyroid, chipNone -->
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
+        app:singleSelection="false"
+        android:layout_marginBottom="24dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipPCOS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PCOS"
+            android:textSize="13sp"
+            android:checkable="true"
+            android:checked="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipEndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Endometriosis"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipThyroid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thyroid"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipNone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Next Button — ID must match Kotlin: binding.nextBtn -->
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Next — अगला"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:background="@drawable/btn_primary_bg"
+        android:stateListAnimator="@null" />
+
+</LinearLayout>

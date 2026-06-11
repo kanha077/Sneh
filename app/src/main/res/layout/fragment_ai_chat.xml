@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snehCream"
+    android:padding="16dp">
+
+    <!-- TOP BAR -->
+    <RelativeLayout
+        android:id="@+id/chatTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sneh AI 🌸"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/snehDeep"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Based on your personal health data"
+                android:textSize="9sp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/snehMuted"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="GEMINI"
+            android:textSize="8sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:background="@color/snehRose"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"/>
+
+    </RelativeLayout>
+
+    <!-- INPUT CHAT BAR (BOTTOM) -->
+    <LinearLayout
+        android:id="@+id/inputArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <EditText
+            android:id="@+id/editChatMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Ask anything about your health..."
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:textSize="11sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/snehText"
+            android:textColorHint="@color/snehMuted"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageView
+            android:id="@+id/btnSendChat"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_send"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            app:tint="@color/snehRose"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+    <!-- SCROLLABLE CHAT MESSAGES AREA -->
+    <ScrollView
+        android:id="@+id/chatScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/inputArea"
+        android:layout_below="@id/chatTopBar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/chatMessagesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Default dialogue bubbles added here -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

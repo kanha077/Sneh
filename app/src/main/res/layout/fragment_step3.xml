@@ -1,122 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="#FDF6F3"
+    android:padding="24dp">
 
+    <!-- Screen Title Banner -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ONBOARDING — STEP 3"
+        android:textColor="#C8856A"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.12"
+        android:gravity="center"
+        android:paddingBottom="20dp" />
+
+    <!-- Page Title -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="24dp"
-        android:background="@color/background">
+        android:layout_marginBottom="6dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health&amp;Lifestyle 💊"
+            android:text="Lifestyle"
+            android:textColor="#3D2318"
             android:textSize="22sp"
-            android:textStyle="bold"/>
-
-        <!-- Symptoms -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Symptoms"
-            android:layout_marginTop="16dp"/>
-
-        <CheckBox
-            android:id="@+id/cramps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cramps"/>
-
-        <CheckBox
-            android:id="@+id/moodSwings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mood Swings"/>
-
-        <CheckBox
-            android:id="@+id/fatigue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fatigue"/>
-
-        <!-- Lifestyle -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sleep Quality"
-            android:layout_marginTop="16dp"/>
-
-        <Spinner
-            android:id="@+id/sleepQuality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stress Level"
-            android:layout_marginTop="8dp"/>
+            android:text="  जीवनशैली"
+            android:textColor="#C9A090"
+            android:textSize="13sp" />
+    </LinearLayout>
 
-        <Spinner
-            android:id="@+id/stressLevel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <!-- Progress Bar Row — All 3 Active -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp"
+        android:weightSum="3">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/progress_segment_active" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/progress_segment_active" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/progress_segment_active" />
+    </LinearLayout>
+
+    <!-- Step Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step 3 of 3 — Final Step"
+        android:textColor="#C9A090"
+        android:textSize="12sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Activity Level Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity level — गतिविधि स्तर"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Activity Chips — declared as TextView so findViewById<TextView> works in Kotlin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
 
         <TextView
+            android:id="@+id/chipActSedentary"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Exercise Frequency"
-            android:layout_marginTop="8dp"/>
+            android:layout_height="36dp"
+            android:text="Sedentary"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_task_pending"
+            android:clickable="true"
+            android:focusable="true" />
 
-        <Spinner
-            android:id="@+id/exerciseFrequency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Goal -->
         <TextView
+            android:id="@+id/chipActModerate"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Primary Goal"
-            android:layout_marginTop="16dp"/>
+            android:layout_height="36dp"
+            android:text="Moderate"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_task_done"
+            android:textColor="#FFFFFF"
+            android:clickable="true"
+            android:focusable="true" />
 
-        <RadioGroup
-            android:id="@+id/goalGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Track Cycle"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reduce Symptoms"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Improve Health"/>
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/finishBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Finish"
-            android:layout_marginTop="24dp"/>
+        <TextView
+            android:id="@+id/chipActActive"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Active"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="@drawable/bg_task_pending"
+            android:clickable="true"
+            android:focusable="true" />
 
     </LinearLayout>
 
-</ScrollView>
+    <!-- Diet Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diet — आहार"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Diet Chips — declared as TextView so findViewById<TextView> works in Kotlin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/chipDietVeg"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Vegetarian"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_task_done"
+            android:textColor="#FFFFFF"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/chipDietNonVeg"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Non-veg"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_task_pending"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/chipDietVegan"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Vegan"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="@drawable/bg_task_pending"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+    <!-- Stress Level Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stress level — तनाव"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Stress SeekBar — ID matches Kotlin: binding.stressLevel -->
+    <SeekBar
+        android:id="@+id/stressLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="60"
+        android:progressTint="#C8856A"
+        android:thumbTint="#C8856A"
+        android:progressBackgroundTint="#F2D5CB"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Finish Button — ID matches Kotlin: binding.finishBtn -->
+    <Button
+        android:id="@+id/finishBtn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Start My Journey 🌸"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:background="@drawable/btn_primary_bg"
+        android:stateListAnimator="@null" />
+
+</LinearLayout>

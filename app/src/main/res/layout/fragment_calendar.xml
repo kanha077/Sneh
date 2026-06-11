@@ -1,152 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/paperBg">
+    android:orientation="vertical"
+    android:background="@color/snehCream"
+    android:padding="16dp">
 
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="0dp"
+    <!-- CALENDAR CARD -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageButton
-            android:id="@+id/backBtn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_launcher_foreground"
-            app:tint="@color/calendarBrown" />
-
-        <TextView
-            android:id="@+id/monthYearText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="June 2026"
-            android:textSize="22sp"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/calendarBrown"
-            android:gravity="center" />
-
-        <ImageButton
-            android:id="@+id/nextMonthBtn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_launcher_foreground"
-            app:tint="@color/calendarBrown"
-            android:rotation="180"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/weekdayHeaders"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Su" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mo" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tu" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="We" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Th" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fr" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sa" android:gravity="center" android:textColor="@color/inactivePink" android:textSize="12sp" android:fontFamily="@font/poppins_regular"/>
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendarRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/weekdayHeaders"
-        app:layout_constraintBottom_toTopOf="@id/logSummary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/logSummary"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:background="@color/card"
-        app:layout_constraintBottom_toTopOf="@id/mainCTA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Day 12 | Ovulation"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/roseGold" />
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/snehWhite"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/snehBlush"
+        android:layout_marginBottom="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp"
-            android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="😊 Mood: Calm" android:textColor="@color/calendarBrown" android:textSize="14sp" android:layout_marginEnd="16dp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏃‍♀️ Activity: Yoga" android:textColor="@color/calendarBrown" android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Month & Year Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/btnPrevMonth"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="◀"
+                    android:textColor="@color/snehRose"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/txtMonthYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="June 2026"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"/>
+
+                <TextView
+                    android:id="@+id/btnNextMonth"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="▶"
+                    android:textColor="@color/snehRose"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </RelativeLayout>
+
+            <!-- Days of Week Label Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="7"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mon" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tue" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wed" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Thu" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fri" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sat" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sun" android:textSize="10sp" android:fontFamily="@font/poppins_bold" android:textColor="@color/snehMuted" android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- Calendar Days Grid -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/calendarRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- Legends -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="12dp">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/dot_period"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Period"
+                    android:textSize="9sp"
+                    android:textColor="@color/snehText"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginEnd="16dp"/>
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/dot_fertility"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fertility Window"
+                    android:textSize="9sp"
+                    android:textColor="@color/snehText"
+                    android:fontFamily="@font/poppins_regular"/>
+
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabLog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_launcher_foreground"
-        app:backgroundTint="@color/peachHighlight"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@id/mainCTA"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainCTA"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="12dp"
-        android:text="Track This Phase"
-        android:textColor="@android:color/white"
-        android:fontFamily="@font/poppins_bold"
-        app:backgroundTint="@color/roseGold"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!-- SYMPTOM LOGGING CARD -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:background="@color/paperBg"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/snehWhite"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/snehBlush">
 
-        <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_launcher_foreground" app:tint="@color/calendarBrown" />
-        <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_launcher_foreground" app:tint="@color/calendarBrown" />
-        <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_launcher_foreground" app:tint="@color/calendarBrown" />
-        <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_launcher_foreground" app:tint="@color/calendarBrown" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/txtSelectedDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logs for June 11, 2026"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log Period Start Date"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehText"
+                    android:layout_marginBottom="4dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetPeriodStart"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="Mark this day as Period Start"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehRose"
+                    app:strokeColor="@color/snehRose"
+                    app:cornerRadius="22dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Symptom Checklist"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehText"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/chipCramps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cramps ⚡"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/chipHeadache"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Headache 🤕"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/chipFatigue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fatigue 😴"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/chipMood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mood Swings 🎭"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/chipBloating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bloating 🎈"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveSymptoms"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="Save Symptoms"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/snehRose"
+                    app:cornerRadius="22dp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+</LinearLayout>

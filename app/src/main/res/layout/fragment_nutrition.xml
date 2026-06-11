@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snehCream"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrition &amp; Water"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- WATER TRACKER CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/snehWhite"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/snehBlush">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txtWaterProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Water Log: 0 / 8 glasses"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stay hydrated! Click on the droplets to log your water intake today."
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehText"
+                    android:layout_marginBottom="14dp"/>
+
+                <ProgressBar
+                    android:id="@+id/waterProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:max="8"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/progress_rose"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Grid of 8 Droplets -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4"
+                        android:layout_marginBottom="8dp">
+                        <ImageView android:id="@+id/drop1" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                        <ImageView android:id="@+id/drop2" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                        <ImageView android:id="@+id/drop3" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                        <ImageView android:id="@+id/drop4" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+                        <ImageView android:id="@+id/drop5" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                        <ImageView android:id="@+id/drop6" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                        <ImageView android:id="@+id/drop7" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                        <ImageView android:id="@+id/drop8" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:src="@drawable/ic_water_drop" app:tint="@color/snehMuted" android:clickable="true" android:focusable="true"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- DIETARY PHASE RECOMMENDATION CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/snehWhite"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/snehBlush">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txtDietPhase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cycle Diet Plan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/txtDietAdvice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Meal tips tailored for your phase will load shortly."
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehText"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended Foods"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch">
+
+                    <TextView
+                        android:id="@+id/foodChip1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spinach 🥬"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/foodChip2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lentils 🍲"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/foodChip3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Salmon 🐟"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/calendarBrown"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:layout_margin="3dp"/>
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

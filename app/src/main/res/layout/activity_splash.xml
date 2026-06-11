@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/creamBg">
+    android:gravity="center"
+    android:background="@color/roseGold"
+    android:padding="24dp">
 
-    <!-- 🌸 APP LOGO -->
+    <!-- 🌸 APP LOGO (WHITE VECTOR) -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/ic_logo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_sneh_logo_white"
         android:contentDescription="App Logo"/>
 
     <!-- APP NAME -->
@@ -20,9 +21,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sneh"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/dustyPink"
-        android:layout_marginTop="16dp"/>
+        android:textSize="22sp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="12dp"
+        android:letterSpacing="0.04"/>
+
+    <!-- SUBTITLE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Women's Wellness Companion"
+        android:textSize="11sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="#E0FFFFFF"
+        android:layout_marginTop="4dp"
+        android:gravity="center"/>
+
+    <!-- TAGLINE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nurturing Every Flow"
+        android:textSize="10sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="#B3FFFFFF"
+        android:layout_marginTop="6dp"
+        android:letterSpacing="0.06"
+        android:gravity="center"/>
 
 </LinearLayout>

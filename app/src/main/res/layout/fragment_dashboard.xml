@@ -1,195 +1,485 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/creamBg"
-    android:fillViewport="true">
+    android:background="@color/snehCream"
+    android:fitsSystemWindows="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- MAIN CONTENT AREA -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="60dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <!-- 🚪 TOP BAR -->
-        <ImageButton
-            android:id="@+id/logoutBtn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_launcher_foreground"
-            app:tint="@color/calendarBrown"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="Logout" />
-
-        <TextView
-            android:id="@+id/welcomeTitle"
-            style="@style/TextHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Ecosystem"
-            android:textColor="@color/calendarBrown"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <!-- 🌸 CENTRAL HUB -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/centralPanel"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            app:cardCornerRadius="65dp"
-            app:cardElevation="16dp"
-            app:cardBackgroundColor="@color/card"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.45">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/logo"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:src="@drawable/ic_logo"
-                    android:contentDescription="Sneh Logo" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sneh"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/dustyPink"
-                    android:layout_marginTop="2dp" />
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- 📱 LEFT MODULES -->
-
-        <!-- Top Left: Cycle Tracker -->
-        <include
-            android:id="@+id/moduleCycle"
-            layout="@layout/module_cycle_tracker"
-            android:layout_width="150dp"
-            android:layout_height="220dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="100dp"
-            android:layout_marginStart="20dp" />
-
-        <TextView
-            style="@style/EcosystemLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cycle Tracker"
-            android:rotation="-8"
-            app:layout_constraintBottom_toTopOf="@id/moduleCycle"
-            app:layout_constraintStart_toStartOf="@id/moduleCycle"
-            android:layout_marginBottom="4dp" />
-
-        <!-- Mid Left: Mind Wellness -->
-        <include
-            android:id="@+id/moduleMind"
-            layout="@layout/module_mind_wellness"
-            android:layout_width="140dp"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toBottomOf="@id/moduleCycle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginStart="12dp" />
-
-        <!-- Bottom Left: Physical Fitness -->
-        <include
-            android:id="@+id/modulePhysical"
-            layout="@layout/module_physical_fitness"
-            android:layout_width="150dp"
-            android:layout_height="210dp"
-            app:layout_constraintTop_toBottomOf="@id/moduleMind"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginStart="24dp" />
-
-
-        <!-- 📱 RIGHT MODULES -->
-
-        <!-- Top Right: Nutrition -->
-        <include
-            android:id="@+id/moduleNutrition"
-            layout="@layout/module_nutrition"
-            android:layout_width="150dp"
-            android:layout_height="220dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="20dp" />
-
-        <TextView
-            style="@style/EcosystemLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nutrition"
-            android:rotation="8"
-            app:layout_constraintBottom_toTopOf="@id/moduleNutrition"
-            app:layout_constraintEnd_toEndOf="@id/moduleNutrition"
-            android:layout_marginBottom="4dp" />
-
-        <!-- Mid Right: Fertility Plan -->
-        <include
-            android:id="@+id/moduleFertility"
-            layout="@layout/module_fertility_plan"
-            android:layout_width="140dp"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toBottomOf="@id/moduleNutrition"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="12dp" />
-
-        <!-- Bottom Right: Expert & Community -->
-        <include
-            android:id="@+id/moduleExpert"
-            layout="@layout/module_expert_community"
-            android:layout_width="150dp"
-            android:layout_height="210dp"
-            app:layout_constraintTop_toBottomOf="@id/moduleFertility"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="24dp" />
-
-
-        <!-- ✨ BOTTOM TAGLINE -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/taglineCard"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="60dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/card"
-            app:layout_constraintTop_toBottomOf="@id/modulePhysical"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <TextView
-                style="@style/EcosystemTagline"
+            <!-- HEADER / TOP BAR -->
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nurturing Every Flow,\nConnecting Your Wellness."
-                android:background="@android:color/transparent"
-                android:padding="20dp" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/menuBtn"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_menu_icon"
+                    android:contentDescription="Menu"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
 
-</ScrollView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/greetingText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hello, Priya 🌸"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehDeep" />
+
+                    <TextView
+                        android:id="@+id/subGreetingText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your wellness at a glance"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/snehMuted" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- 📅 PERIOD CORRECTION CARD (Overdue Warning) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/periodCorrectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/snehWhite"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="@color/snehRose"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Predicted period date has passed"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/snehDeep"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sneh predicted your period would start. If your period has started, please update the actual date to calibrate future predictions."
+                        android:textSize="10sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/snehText"
+                        android:layout_marginBottom="14dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/correctionLogBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Yes, started today"
+                            android:textSize="10sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/white"
+                            app:backgroundTint="@color/snehRose"
+                            app:cornerRadius="18dp"
+                            android:layout_marginEnd="8dp"
+                            android:paddingVertical="0dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/correctionDatePickerBtn"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Select Date"
+                            android:textSize="10sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/snehRose"
+                            app:strokeColor="@color/snehRose"
+                            app:cornerRadius="18dp"
+                            android:paddingVertical="0dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 🌸 CYCLE HERO CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/heroCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/snehWhite"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/snehBlush">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/txtCycleDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day 12"
+                        android:textSize="36sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehRose" />
+
+                    <TextView
+                        android:id="@+id/txtCyclePhase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Follicular Phase 🌱"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehDeep"
+                        android:background="@drawable/bg_task_pending"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/txtPhaseRecommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estrogen levels are rising. Your energy is increasing. Great time for cardio workout!"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/snehSubtle"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 📋 TODAY'S TASKS CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/snehWhite"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/snehBlush">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today's Wellness Tasks"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehDeep"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Task 1: Water -->
+                    <LinearLayout
+                        android:id="@+id/taskWater"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:id="@+id/imgTaskWaterCheck"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_circle_outline"
+                            android:layout_marginEnd="12dp"
+                            app:tint="@color/snehRose"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hydration: Drink 8 glasses of water"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/snehText"/>
+                    </LinearLayout>
+
+                    <!-- Task 2: Meditation -->
+                    <LinearLayout
+                        android:id="@+id/taskMeditation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:id="@+id/imgTaskMedCheck"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_circle_outline"
+                            android:layout_marginEnd="12dp"
+                            app:tint="@color/snehRose"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Mindfulness: Complete 8-min breathing meditation"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/snehText"/>
+                    </LinearLayout>
+
+                    <!-- Task 3: Symptoms -->
+                    <LinearLayout
+                        android:id="@+id/taskSymptoms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:id="@+id/imgTaskSymCheck"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_circle_outline"
+                            android:layout_marginEnd="12dp"
+                            app:tint="@color/snehRose"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Symptom Log: Record your state in calendar"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/snehText"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 🌸 QUICK LOG BUTTON -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/quickLogBtn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="🌸 Quick Log Symptoms"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/snehRose"
+                app:cornerRadius="24dp"
+                android:layout_marginBottom="24dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- SLIDE-OUT NAVIGATION DRAWER PANEL -->
+    <LinearLayout
+        android:id="@+id/navDrawerPane"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/snehWhite"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- LOGO SECTION -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="32dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_sneh_logo_color"
+                android:contentDescription="Sneh"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sneh"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/snehRose"
+                android:layout_marginTop="4dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wellness Companion"
+                android:textSize="8sp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/snehMuted"/>
+        </LinearLayout>
+
+        <!-- MENU ITEMS -->
+        <TextView
+            android:id="@+id/menuAiChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌸 AI Chat Assistant"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/menuWhatIf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔮 What-If Simulator"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/menuFitness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🧘‍♀️ Physical Fitness"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/menuFertility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌼 Fertility Plan"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/menuCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💬 Expert Community"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/menuReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 Medical Report"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- LOGOUT -->
+        <TextView
+            android:id="@+id/menuLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚪 Log Out"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehRose"
+            android:paddingVertical="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

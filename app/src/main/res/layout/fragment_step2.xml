@@ -1,65 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="#FDF6F3"
+    android:padding="24dp">
 
+    <!-- Screen Title Banner -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ONBOARDING — STEP 2"
+        android:textColor="#C8856A"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.12"
+        android:gravity="center"
+        android:paddingBottom="20dp" />
+
+    <!-- Page Title -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="24dp"
-        android:background="@color/background">
+        android:layout_marginBottom="6dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Cycle 🌿"
+            android:text="Cycle Details"
+            android:textColor="#3D2318"
             android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/cycleLength"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Cycle Length (e.g. 28)"
-            android:inputType="number"
-            android:background="@drawable/bg_input"
-            android:padding="14dp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/periodLength"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Period Length (days)"
-            android:inputType="number"
-            android:background="@drawable/bg_input"
-            android:padding="14dp"
-            android:layout_marginTop="12dp"/>
-
-        <EditText
-            android:id="@+id/lastPeriodDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Last Period (YYYY-MM-DD)"
-            android:background="@drawable/bg_input"
-            android:padding="14dp"
-            android:layout_marginTop="12dp"/>
-
-        <Spinner
-            android:id="@+id/regularity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"/>
-
-        <Button
-            android:id="@+id/nextBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:layout_marginTop="24dp"/>
+            android:text="  चक्र विवरण"
+            android:textColor="#C9A090"
+            android:textSize="13sp" />
     </LinearLayout>
-</ScrollView>
+
+    <!-- Progress Bar Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp"
+        android:weightSum="3">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/progress_segment_active" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/progress_segment_active" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/progress_segment_inactive" />
+    </LinearLayout>
+
+    <!-- Step Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step 2 of 3 — चरण 2 of 3"
+        android:textColor="#C9A090"
+        android:textSize="12sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Last Period Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="अंतिम माहवारी | Last period start"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Date Picker Input — ID must match Kotlin: binding.lastPeriodDate -->
+    <EditText
+        android:id="@+id/lastPeriodDate"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="Pick date"
+        android:textColorHint="#C9A090"
+        android:textColor="#3D2318"
+        android:textSize="14sp"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:focusable="false"
+        android:clickable="true"
+        android:inputType="none"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Flow Duration Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="प्रवाह की अवधि | Flow duration (days)"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Flow Duration Chips — IDs: chipDur3, chipDur4, chipDur5, chipDur6, chipDur7 -->
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="8dp"
+        app:singleSelection="true"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDur3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="13sp"
+            android:checkable="true"
+            android:checked="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDur4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDur5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDur6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDur7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7+"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Goal Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="लक्ष्य | Goal"
+        android:textColor="#7A5545"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Goal Chips — IDs: chipGoalTrack, chipGoalConceive, chipGoalAvoid -->
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
+        app:singleSelection="true"
+        android:layout_marginBottom="24dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGoalTrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track health"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGoalConceive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conceive"
+            android:textSize="13sp"
+            android:checkable="true"
+            android:checked="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGoalAvoid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avoid pregnancy"
+            android:textSize="13sp"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_selector"
+            app:chipStrokeColor="#E8B4A0"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconVisible="false"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Next Button — ID must match Kotlin: binding.nextBtn -->
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Next — अगला"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:background="@drawable/btn_primary_bg"
+        android:stateListAnimator="@null" />
+
+</LinearLayout>

@@ -13,4 +13,10 @@
         <item name="android:windowLightStatusBar">true</item>
 
     </style>
+
+    <style name="Theme.SnehApp.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/roseGold</item>
+        <item name="android:statusBarColor">@color/roseGold</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>

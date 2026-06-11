@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 🌸 Primary Palette -->
-    <color name="lightLavender">#E6D6F2</color>
-    <color name="softYellow">#FFF2B2</color>
-    <color name="dustyPink">#E8A0A8</color>
-    <color name="warmPurple">#B48FB5</color>
-    <color name="creamBg">#FFF6F7</color>
+    <!-- 🌸 Sneh Terracotta & Rose Palette (Design Tokens) -->
+    <color name="snehRose">#C8856A</color>
+    <color name="snehBlush">#F2D5CB</color>
+    <color name="snehCream">#FDF6F3</color>
+    <color name="snehPetal">#E8B4A0</color>
+    <color name="snehDeep">#8B4E3A</color>
+    <color name="snehMuted">#C9A090</color>
+    <color name="snehWhite">#FFFAF8</color>
+    <color name="snehText">#3D2318</color>
+    <color name="snehSubtle">#7A5545</color>
 
-    <!-- 🧠 UI Colors -->
-    <color name="primary">#F4A7B9</color>
-    <color name="secondary">#B39DDB</color>
-    <color name="background">#FFF9F6</color>
-    <color name="card">#FFFFFF</color>
-    <color name="textPrimary">#2A2A2A</color>
-    <color name="textSecondary">#7A7A7A</color>
+    <!-- 🧠 Active Palette Mappings -->
+    <color name="creamBg">@color/snehCream</color>
+    <color name="background">@color/snehCream</color>
+    <color name="card">@color/snehWhite</color>
+    <color name="primary">@color/snehRose</color>
+    <color name="secondary">@color/snehBlush</color>
+    <color name="dustyPink">@color/snehRose</color>
+    <color name="warmPurple">@color/snehPetal</color>
+    <color name="textPrimary">@color/snehText</color>
+    <color name="textSecondary">@color/snehSubtle</color>
 
-    <!-- 🌿 Sneh Wellness Calendar Palette -->
-    <color name="paperBg">#FAF9F6</color>
-    <color name="calendarBrown">#4A3728</color>
-    <color name="cherryRed">#D21F3C</color>
-    <color name="oliveGreen">#708238</color>
-    <color name="peachHighlight">#FFDAB9</color>
-    <color name="inactivePink">#F8D7DA</color>
-    <color name="roseGold">#B76E79</color>
-    <color name="labelBackground">#E6D6F2</color>
+    <!-- 🌿 Sneh Wellness Calendar & Phase Mappings -->
+    <color name="paperBg">@color/snehWhite</color>
+    <color name="calendarBrown">@color/snehDeep</color>
+    <color name="cherryRed">@color/snehRose</color>
+    <color name="oliveGreen">@color/snehDeep</color>
+    <color name="peachHighlight">@color/snehPetal</color>
+    <color name="inactivePink">@color/snehBlush</color>
+    <color name="roseGold">@color/snehRose</color>
+    <color name="labelBackground">@color/snehBlush</color>
     <color name="waterBlue">#AED9E0</color>
-    </resources>
+    <color name="white">#FFFFFF</color>
+    <color name="blushPink">@color/snehBlush</color>
+    <color name="petalPink">@color/snehPetal</color>
+</resources>

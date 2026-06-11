@@ -11,9 +11,10 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
-        // Load first step
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, Step1BasicInfoFragment())
-            .commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, Step1BasicInfoFragment())
+                .commit()
+        }
     }
 }

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snehCream"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Physical Fitness"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/snehDeep"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- CURRENT PHASE RECO WORKOUTS CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/snehWhite"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/snehBlush">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txtFitnessPhase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended Workouts"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/txtFitnessDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Workouts tailored for your active cycle state."
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehText"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Workout 1 Card -->
+                <RelativeLayout
+                    android:id="@+id/workout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_task_pending"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/txtWorkout1Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧘‍♀️ Gentle Yoga Nidra"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/calendarBrown"/>
+
+                    <TextView
+                        android:id="@+id/txtWorkout1Details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtWorkout1Name"
+                        android:text="15 mins • Eases menstrual cramps"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/snehSubtle"/>
+
+                    <TextView
+                        android:id="@+id/btnLogWorkout1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="Log Completed"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehRose"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </RelativeLayout>
+
+                <!-- Workout 2 Card -->
+                <RelativeLayout
+                    android:id="@+id/workout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_task_pending"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/txtWorkout2Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🚶‍♀️ Steady Pace Walk"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/calendarBrown"/>
+
+                    <TextView
+                        android:id="@+id/txtWorkout2Details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtWorkout2Name"
+                        android:text="30 mins • Enhances cardiovascular health"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/snehSubtle"/>
+
+                    <TextView
+                        android:id="@+id/btnLogWorkout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="Log Completed"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehRose"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </RelativeLayout>
+
+                <!-- Workout 3 Card -->
+                <RelativeLayout
+                    android:id="@+id/workout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_task_pending">
+
+                    <TextView
+                        android:id="@+id/txtWorkout3Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🤸‍♀️ Slow Pelvic Stretches"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/calendarBrown"/>
+
+                    <TextView
+                        android:id="@+id/txtWorkout3Details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtWorkout3Name"
+                        android:text="10 mins • Releases lower back tension"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/snehSubtle"/>
+
+                    <TextView
+                        android:id="@+id/btnLogWorkout3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="Log Completed"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/snehRose"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- PREVIOUS COMPLETED WORKOUTS LIST -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/snehWhite"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/snehBlush">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today's Workout History"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/snehDeep"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:id="@+id/txtWorkoutHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No workouts logged today yet."
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/snehText"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
