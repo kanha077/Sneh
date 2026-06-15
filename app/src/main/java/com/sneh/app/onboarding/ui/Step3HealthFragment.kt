@@ -136,7 +136,8 @@ class Step3HealthFragment : Fragment() {
             //    so we don't depend on vm.name being set during onboarding navigation
             db.collection("users").document(userId).get()
                 .addOnSuccessListener { doc ->
-                    val nameFromFirestore = doc.getString("profile.name")
+                    val profileMap = doc.get("profile") as? Map<*, *>
+                    val nameFromFirestore = profileMap?.get("name") as? String
                         ?: vm.name.ifEmpty { "User" }
 
                     val data = hashMapOf(

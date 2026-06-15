@@ -12,6 +12,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.sneh.app.R
 import com.sneh.app.core.CycleUtils
 
@@ -62,7 +63,31 @@ class AiChatFragment : Fragment() {
                     cycleLength = (cycle?.get("cycleLength") as? Long)?.toInt() ?: 28
                     lastPeriodDate = cycle?.get("lastPeriodDate") as? String ?: ""
 
-                    addWelcomeMessage()
+                    fetchChatHistory(currentUser.uid)
+                }
+            }
+            .addOnFailureListener {
+                addWelcomeMessage()
+            }
+    }
+
+    private fun fetchChatHistory(userId: String) {
+        db.collection("users").document(userId)
+            .collection("chats")
+            .orderBy("timestamp", Query.Direction.ASCENDING)
+            .get()
+            .addOnSuccessListener { docs ->
+                if (isAdded) {
+                    chatMessagesContainer.removeAllViews()
+                    if (docs.isEmpty) {
+                        addWelcomeMessage()
+                    } else {
+                        for (doc in docs) {
+                            val text = doc.getString("text") ?: ""
+                            val isAi = doc.getBoolean("isAi") ?: false
+                            addMessageBubble(text, isAi)
+                        }
+                    }
                 }
             }
             .addOnFailureListener {
@@ -85,11 +110,28 @@ class AiChatFragment : Fragment() {
         editChatMessage.text.clear()
         addMessageBubble(messageText, isAi = false)
 
+        val currentUser = auth.currentUser ?: return
+        val userMsgPayload = mapOf(
+            "text" to messageText,
+            "isAi" to false,
+            "timestamp" to System.currentTimeMillis()
+        )
+        db.collection("users").document(currentUser.uid)
+            .collection("chats").add(userMsgPayload)
+
         // Generate AI response
         btnSendChat.postDelayed({
             if (isAdded) {
                 val aiResponse = generateAiResponse(messageText)
                 addMessageBubble(aiResponse, isAi = true)
+
+                val aiMsgPayload = mapOf(
+                    "text" to aiResponse,
+                    "isAi" to true,
+                    "timestamp" to System.currentTimeMillis()
+                )
+                db.collection("users").document(currentUser.uid)
+                    .collection("chats").add(aiMsgPayload)
             }
         }, 1000)
     }

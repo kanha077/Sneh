@@ -11,6 +11,8 @@
         <item name="android:textColorSecondary">@color/textSecondary</item>
         <item name="android:statusBarColor">@color/creamBg</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
 
     </style>
 

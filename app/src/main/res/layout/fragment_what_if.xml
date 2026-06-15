@@ -1,180 +1,814 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/snehCream"
-    android:fillViewport="true">
+    android:background="@color/creamBg"
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <!-- ══════════════════════════════════════════════ -->
+    <!--   APP BAR / TOP BAR                           -->
+    <!-- ══════════════════════════════════════════════ -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:background="@color/creamBg"
+        app:elevation="0dp">
 
-        <!-- HEADER -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What-If Simulator"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/snehDeep"
-            android:layout_marginBottom="16dp"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:paddingHorizontal="8dp"
+            app:contentInsetStart="0dp">
 
-        <!-- DESCRIPTION -->
-        <com.google.android.material.card.MaterialCardView
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <!-- Back button -->
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/roseGold"
+                    android:contentDescription="Back" />
+
+                <!-- Title block -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="What-If Simulator"
+                        android:textColor="@color/calendarBrown"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/poppins_bold" />
+
+                </LinearLayout>
+
+                <!-- AI Badge -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/roseGold">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="GEMINI AI"
+                        android:textColor="@color/white"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins_bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!--   MAIN SCROLL CONTENT                         -->
+    <!-- ══════════════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="3dp"
-            app:cardBackgroundColor="@color/snehWhite"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/snehBlush">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="8dp">
 
-            <LinearLayout
+            <!-- ──────────────────────────────────────── -->
+            <!--   HERO INTRO CARD                        -->
+            <!-- ──────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/heroCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/roseGold">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Scenario Predictor 🔮"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/snehDeep"
-                    android:layout_marginBottom="6dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Simulate how lifestyle changes (stress, sleep, meals) will affect your hormone levels and energy during your active cycle phase."
-                    android:textSize="10sp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/snehText"/>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- PRESETS GRID -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose a Preset Scenario"
-            android:textSize="10sp"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/snehDeep"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.flexbox.FlexboxLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:flexWrap="wrap"
-            app:alignItems="stretch"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:id="@+id/presetSkipMeals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Skip Meals 🍽️"
-                android:textSize="9sp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/calendarBrown"
-                android:background="@drawable/bg_task_pending"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="8dp"
-                android:layout_margin="4dp"
-                android:clickable="true"
-                android:focusable="true"/>
-
-            <TextView
-                android:id="@+id/presetSleep5h"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sleep 5 hours 😴"
-                android:textSize="9sp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/calendarBrown"
-                android:background="@drawable/bg_task_pending"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="8dp"
-                android:layout_margin="4dp"
-                android:clickable="true"
-                android:focusable="true"/>
-
-            <TextView
-                android:id="@+id/presetHighStress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="High Stress ⚡"
-                android:textSize="9sp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/calendarBrown"
-                android:background="@drawable/bg_task_pending"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="8dp"
-                android:layout_margin="4dp"
-                android:clickable="true"
-                android:focusable="true"/>
-
-        </com.google.android.flexbox.FlexboxLayout>
-
-        <!-- SIMULATOR PREDICTION CARD -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/predictionCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/snehWhite"
-            app:strokeWidth="1.5dp"
-            app:strokeColor="@color/snehRose"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="18dp">
-
-                <TextView
-                    android:id="@+id/txtPredictionTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="AI Prediction Results"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/snehDeep"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:id="@+id/txtPredictionBody"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hormone predictions based on the simulated scenario."
-                    android:textSize="10sp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/snehText"
-                    android:layout_marginBottom="12dp"/>
+                    android:orientation="vertical"
+                    android:padding="22dp"
+                    android:gravity="center">
 
-                <TextView
-                    android:id="@+id/txtHormoneScore"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔮"
+                        android:textSize="36sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="What-If Simulator"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Explore health scenarios using your personal data. Ask any hypothetical — Sneh AI predicts the impact based on your cycle."
+                        android:textColor="#DDFFFFFF"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:lineSpacingExtra="3dp" />
+
+                    <!-- Context pills -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#33FFFFFF">
+
+                            <TextView
+                                android:id="@+id/tvHeaderCycleDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:text="📅 Day 1"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#33FFFFFF">
+
+                            <TextView
+                                android:id="@+id/tvHeaderCyclePhase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:text="🌸 Unknown"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#33FFFFFF">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:text="🔒 Private"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ──────────────────────────────────────── -->
+            <!--   INPUT CARD — ASK YOUR QUESTION         -->
+            <!-- ──────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/inputCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Simulated Wellness Score: 85/100"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/snehRose"/>
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
 
-        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💬"
+                            android:textSize="18sp" />
 
-    </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Ask Your Question"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins_bold" />
 
-</ScrollView>
+                    </LinearLayout>
+
+                    <!-- Text input field -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/whatIfInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="What if I start training for a 5K next week?"
+                        app:hintTextColor="@color/textSecondary"
+                        app:boxStrokeColor="@color/roseGold"
+                        app:boxStrokeWidth="1.5dp"
+                        app:boxBackgroundColor="@color/creamBg"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="200">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etWhatIfInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minLines="3"
+                            android:maxLines="5"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:padding="14dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Quick suggestion chips -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Quick suggestions"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_regular" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSuggestion1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Start 5K training"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_regular"
+                                app:chipBackgroundColor="@color/blushPink"
+                                app:chipStrokeColor="@color/petalPink"
+                                app:chipStrokeWidth="1dp"
+                                app:chipCornerRadius="16dp"
+                                style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSuggestion2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Skip iron supplement"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_regular"
+                                app:chipBackgroundColor="@color/blushPink"
+                                app:chipStrokeColor="@color/petalPink"
+                                app:chipStrokeWidth="1dp"
+                                app:chipCornerRadius="16dp"
+                                style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSuggestion3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Try intermittent fasting"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_regular"
+                                app:chipBackgroundColor="@color/blushPink"
+                                app:chipStrokeColor="@color/petalPink"
+                                app:chipStrokeWidth="1dp"
+                                app:chipCornerRadius="16dp"
+                                style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSuggestion4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Start new medication"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_regular"
+                                app:chipBackgroundColor="@color/blushPink"
+                                app:chipStrokeColor="@color/petalPink"
+                                app:chipStrokeWidth="1dp"
+                                app:chipCornerRadius="16dp"
+                                style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                    <!-- Submit button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSimulate"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Predict Impact"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/roseGold"
+                        app:cornerRadius="26dp"
+                        app:icon="@drawable/ic_sparkle"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/white" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ──────────────────────────────────────── -->
+            <!--   LOADING STATE (visible during API call) -->
+            <!-- ──────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/loadingCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <ProgressBar
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:indeterminateTint="@color/roseGold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Sneh AI is analyzing your data..."
+                        android:textColor="@color/textSecondary"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ──────────────────────────────────────── -->
+            <!--   AI RESULT CARD (shown after response)  -->
+            <!-- ──────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/resultCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Result header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔮"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="AI Prediction"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins_bold" />
+
+                        <!-- Impact badge: set text + color dynamically in code -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/impactBadgeCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/blushPink">
+
+                            <TextView
+                                android:id="@+id/tvImpactBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp"
+                                android:text="Moderate Risk"
+                                android:textColor="@color/roseGold"
+                                android:textSize="10sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <!-- The user's question repeated -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/blushPink">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="14dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="❓"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvUserQuestion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="10dp"
+                                android:text="What if I start training for a 5K next week?"
+                                android:textColor="@color/calendarBrown"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:fontStyle="italic" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- AI response text -->
+                    <TextView
+                        android:id="@+id/tvAiResponse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="You are in your luteal phase (Day 18). Starting high-intensity training now may increase PMS symptoms by ~30%. Your cortisol is naturally elevated this week, and adding physical stress could amplify mood swings and fatigue. Consider starting in your follicular phase (around Day 6) for the best results. Low-impact runs like 20-minute jogs are safe right now."
+                        android:textColor="@color/calendarBrown"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingExtra="4dp" />
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/blushPink"
+                        android:layout_marginBottom="14dp" />
+
+                    <!-- Action chips -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="What to do now"
+                        android:textColor="@color/calendarBrown"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/poppins_bold" />
+
+                    <!-- Action item 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/roseGold">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvAction1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="Start with low-impact walks this week"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular" />
+
+                    </LinearLayout>
+
+                    <!-- Action item 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/roseGold">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="2"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvAction2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="Begin full 5K training from Day 6 (follicular)"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular" />
+
+                    </LinearLayout>
+
+                    <!-- Action item 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/roseGold">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/poppins_bold" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvAction3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="Prioritize iron-rich foods to support training load"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular" />
+
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/blushPink"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="14dp" />
+
+                    <!-- Ask another / Save buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSaveResult"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="Save"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/roseGold"
+                            app:strokeColor="@color/roseGold"
+                            app:cornerRadius="20dp"
+                            app:icon="@drawable/ic_bookmark"
+                            app:iconTint="@color/roseGold" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAskAnother"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Ask Another"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/white"
+                            app:backgroundTint="@color/roseGold"
+                            app:cornerRadius="20dp"
+                            app:icon="@drawable/ic_refresh"
+                            app:iconTint="@color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ──────────────────────────────────────── -->
+            <!--   PAST SIMULATIONS                       -->
+            <!-- ──────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/historyCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Past Simulations"
+                            android:textColor="@color/calendarBrown"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true" />
+
+                        <TextView
+                            android:id="@+id/tvClearHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Clear all"
+                            android:textColor="@color/roseGold"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+
+                    </RelativeLayout>
+
+                    <!-- Dynamic history container -->
+                    <LinearLayout
+                        android:id="@+id/llHistoryContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Disclaimer -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="⚠️ Sneh AI predictions are for wellness guidance only and do not replace professional medical advice. Always consult your doctor for medical decisions."
+                android:textColor="@color/textSecondary"
+                android:textSize="10sp"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingExtra="3dp"
+                android:gravity="center"
+                android:paddingHorizontal="8dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

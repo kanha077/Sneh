@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -65,7 +66,9 @@ class PhysicalFitnessFragment : Fragment() {
         btnLogWorkout2.setOnClickListener { logWorkout(txtWorkout2Name.text.toString()) }
         btnLogWorkout3.setOnClickListener { logWorkout(txtWorkout3Name.text.toString()) }
 
+        // Fetch parallel data loads
         fetchUserData()
+        fetchTodayWorkouts()
 
         return view
     }
@@ -80,13 +83,23 @@ class PhysicalFitnessFragment : Fragment() {
                     lastPeriodDate = cycle?.get("lastPeriodDate") as? String ?: ""
 
                     updateWorkoutsRecommendation()
-                    fetchTodayWorkouts()
                 }
             }
     }
 
     private fun updateWorkoutsRecommendation() {
-        if (lastPeriodDate.isEmpty()) return
+        if (lastPeriodDate.isEmpty()) {
+            txtFitnessPhase.text = "Fitness: Cycle Workout Plan"
+            txtFitnessDescription.text = "Please log your last period on the dashboard to get tailored workout suggestions."
+            txtWorkout1Name.text = "🧘‍♀️ Gentle Stretching"
+            txtWorkout1Details.text = "15 mins • Restorative"
+            txtWorkout2Name.text = "🚶‍♀️ Moderate Walk"
+            txtWorkout2Details.text = "30 mins • Active recovery"
+            txtWorkout3Name.text = "🤸‍♀️ Core Exercises"
+            txtWorkout3Details.text = "15 mins • Low impact stability"
+            updateWorkoutButtonStates()
+            return
+        }
 
         val (_, phase) = CycleUtils.getCycleDayAndPhase(lastPeriodDate, cycleLength)
         txtFitnessPhase.text = "Fitness: $phase"
@@ -129,13 +142,21 @@ class PhysicalFitnessFragment : Fragment() {
                 txtWorkout3Details.text = "30 mins • Relieves stress & relaxes"
             }
         }
+        updateWorkoutButtonStates()
     }
 
     private fun logWorkout(workoutName: String) {
         val currentUser = auth.currentUser ?: return
         val todayKey = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
-        loggedWorkouts.add(workoutName)
+        if (loggedWorkouts.contains(workoutName)) {
+            loggedWorkouts.remove(workoutName)
+        } else {
+            loggedWorkouts.add(workoutName)
+        }
+
+        updateHistoryText()
+        updateWorkoutButtonStates()
 
         val updates = mapOf(
             "workouts" to loggedWorkouts,
@@ -146,8 +167,7 @@ class PhysicalFitnessFragment : Fragment() {
             .collection("workoutLogs").document(todayKey).set(updates)
             .addOnSuccessListener {
                 if (isAdded) {
-                    Toast.makeText(context, "Workout logged successfully!", Toast.LENGTH_SHORT).show()
-                    updateHistoryText()
+                    Toast.makeText(context, "Workouts updated!", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -159,13 +179,16 @@ class PhysicalFitnessFragment : Fragment() {
         db.collection("users").document(currentUser.uid)
             .collection("workoutLogs").document(todayKey).get()
             .addOnSuccessListener { doc ->
-                if (isAdded && doc.exists()) {
-                    val list = doc.get("workouts") as? List<*>
+                if (isAdded) {
                     loggedWorkouts.clear()
-                    list?.filterIsInstance<String>()?.let {
-                        loggedWorkouts.addAll(it)
+                    if (doc.exists()) {
+                        val list = doc.get("workouts") as? List<*>
+                        list?.filterIsInstance<String>()?.let {
+                            loggedWorkouts.addAll(it)
+                        }
                     }
                     updateHistoryText()
+                    updateWorkoutButtonStates()
                 }
             }
     }
@@ -179,6 +202,37 @@ class PhysicalFitnessFragment : Fragment() {
                 sb.append("${i + 1}. $name (Completed)\n")
             }
             txtWorkoutHistory.text = sb.toString().trim()
+        }
+    }
+
+    private fun updateWorkoutButtonStates() {
+        val ctx = context ?: return
+        
+        // Button 1
+        if (loggedWorkouts.contains(txtWorkout1Name.text.toString())) {
+            btnLogWorkout1.text = "Completed ✓"
+            btnLogWorkout1.setTextColor(ContextCompat.getColor(ctx, R.color.oliveGreen))
+        } else {
+            btnLogWorkout1.text = "Log Completed"
+            btnLogWorkout1.setTextColor(ContextCompat.getColor(ctx, R.color.snehRose))
+        }
+
+        // Button 2
+        if (loggedWorkouts.contains(txtWorkout2Name.text.toString())) {
+            btnLogWorkout2.text = "Completed ✓"
+            btnLogWorkout2.setTextColor(ContextCompat.getColor(ctx, R.color.oliveGreen))
+        } else {
+            btnLogWorkout2.text = "Log Completed"
+            btnLogWorkout2.setTextColor(ContextCompat.getColor(ctx, R.color.snehRose))
+        }
+
+        // Button 3
+        if (loggedWorkouts.contains(txtWorkout3Name.text.toString())) {
+            btnLogWorkout3.text = "Completed ✓"
+            btnLogWorkout3.setTextColor(ContextCompat.getColor(ctx, R.color.oliveGreen))
+        } else {
+            btnLogWorkout3.text = "Log Completed"
+            btnLogWorkout3.setTextColor(ContextCompat.getColor(ctx, R.color.snehRose))
         }
     }
 }

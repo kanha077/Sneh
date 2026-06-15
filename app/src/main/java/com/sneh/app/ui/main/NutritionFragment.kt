@@ -66,14 +66,21 @@ class NutritionFragment : Fragment() {
             view.findViewById(R.id.drop8)
         )
 
-        // Droplet clicks
+        // Droplet clicks: Allow toggle-off to reduce glasses
         droplets.forEachIndexed { index, drop ->
             drop.setOnClickListener {
-                setWaterIntake(index + 1)
+                val glasses = index + 1
+                if (waterLogged == glasses) {
+                    setWaterIntake(glasses - 1)
+                } else {
+                    setWaterIntake(glasses)
+                }
             }
         }
 
+        // Decouple data loading tasks
         fetchUserData()
+        fetchTodayWater()
 
         return view
     }
@@ -88,13 +95,19 @@ class NutritionFragment : Fragment() {
                     lastPeriodDate = cycle?.get("lastPeriodDate") as? String ?: ""
 
                     updateDietAdvice()
-                    fetchTodayWater()
                 }
             }
     }
 
     private fun updateDietAdvice() {
-        if (lastPeriodDate.isEmpty()) return
+        if (lastPeriodDate.isEmpty()) {
+            txtDietPhase.text = "Cycle Diet Plan"
+            txtDietAdvice.text = "Please setup your cycle in the Dashboard to get personalized diet and meal suggestions!"
+            foodChip1.text = "N/A"
+            foodChip2.text = "N/A"
+            foodChip3.text = "N/A"
+            return
+        }
 
         val (_, phase) = CycleUtils.getCycleDayAndPhase(lastPeriodDate, cycleLength)
         txtDietPhase.text = "Diet Advice: $phase"
@@ -155,22 +168,27 @@ class NutritionFragment : Fragment() {
         db.collection("users").document(currentUser.uid)
             .collection("dailyWater").document(todayKey).get()
             .addOnSuccessListener { doc ->
-                if (isAdded && doc.exists()) {
-                    waterLogged = (doc.getLong("waterGlasses") ?: 0).toInt()
+                if (isAdded) {
+                    waterLogged = if (doc.exists()) {
+                        (doc.getLong("waterGlasses") ?: 0).toInt()
+                    } else {
+                        0
+                    }
                     updateWaterUI()
                 }
             }
     }
 
     private fun updateWaterUI() {
+        val ctx = context ?: return
         txtWaterProgress.text = "Water Log: $waterLogged / 8 glasses"
         waterProgressBar.progress = waterLogged
 
         droplets.forEachIndexed { index, drop ->
             if (index < waterLogged) {
-                drop.setColorFilter(ContextCompat.getColor(requireContext(), R.color.waterBlue))
+                drop.setColorFilter(ContextCompat.getColor(ctx, R.color.waterBlue))
             } else {
-                drop.setColorFilter(ContextCompat.getColor(requireContext(), R.color.snehMuted))
+                drop.setColorFilter(ContextCompat.getColor(ctx, R.color.snehMuted))
             }
         }
     }

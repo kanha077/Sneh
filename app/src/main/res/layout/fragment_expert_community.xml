@@ -106,74 +106,12 @@
                     android:textColor="@color/snehDeep"
                     android:layout_marginBottom="12dp"/>
 
-                <!-- Expert 1 -->
+                <!-- Dynamic experts container -->
                 <LinearLayout
+                    android:id="@+id/llExpertsContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp">
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:text="👩‍⚕️"
-                        android:textSize="24sp"
-                        android:gravity="center"
-                        android:layout_marginEnd="12dp"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dr. Ananya Sharma"
-                            android:textSize="11sp"
-                            android:fontFamily="@font/poppins_bold"
-                            android:textColor="@color/snehText"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gynecologist • 12 yrs exp"
-                            android:textSize="9sp"
-                            android:fontFamily="@font/poppins_regular"
-                            android:textColor="@color/snehSubtle"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Expert 2 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:text="🧘‍♀️"
-                        android:textSize="24sp"
-                        android:gravity="center"
-                        android:layout_marginEnd="12dp"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Meera Nair"
-                            android:textSize="11sp"
-                            android:fontFamily="@font/poppins_bold"
-                            android:textColor="@color/snehText"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Yoga &amp; Hormonal Coach"
-                            android:textSize="9sp"
-                            android:fontFamily="@font/poppins_regular"
-                            android:textColor="@color/snehSubtle"/>
-                    </LinearLayout>
-                </LinearLayout>
+                    android:orientation="vertical" />
 
             </LinearLayout>
 
